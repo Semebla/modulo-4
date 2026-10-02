@@ -23,4 +23,19 @@ public class ProductApiTest {
             .contentType("application/json")
             .body("id", equalTo(1));
     }
+        @Test
+    public void testGetProductById_validName() {
+        // Ignorar la validación de certificado SSL para la IP directa
+        RestAssured.useRelaxedHTTPSValidation();
+
+        given()
+            .baseUri("https://54.161.157.90")
+            .header("Accept", "application/json")
+        .when()
+            .get("/api/v1/products/1")
+        .then()
+            .statusCode(200)
+            .contentType("application/json")
+            .body("name", equalTo(:"Laptop Pro 14"));
+    }
 }
