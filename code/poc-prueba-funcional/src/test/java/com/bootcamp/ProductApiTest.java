@@ -36,6 +36,6 @@ public class ProductApiTest {
         .then()
             .statusCode(200)
             .contentType("application/json")
-            .body("name", equalTo(:"Laptop Pro 14"));
+            .body("name", equalTo("Laptop Pro 14"));
     }
 }
